@@ -57,6 +57,7 @@ const AboutBus = ({ styleNum }) => {
                             <div>
                                 <h4 className={`fw-extra-bold ${dateClass}`}>3 de Mayo de 2025</h4>
                                 <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0">13:45 pm (Pendiente de confirmar)</p>
+                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0"> ℹ️ Los horarios de vuelta los anunciaremos más adelante</p>
                             </div>
                             <div>
                                 <h4 className="text-uppercase fw-extra-bold custom-jakarta">Dirección</h4>

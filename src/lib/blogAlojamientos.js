@@ -7,7 +7,7 @@ import pension_guerrero from "@/assets/images/pension_guerrero.jpg"
 export const blogAlojamientos = [
     {
         id: 1,
-        img: fuente_las_piedras,
+        img: villa_maria,
         link: "https://villamariacabra.top/",
         title: "Hotel Villa María",
         desc: "Hotel en el centro del pueblo junto al histórico Parque Alcántara Romero",
@@ -16,7 +16,7 @@ export const blogAlojamientos = [
     },
     {
         id: 2,
-        img: villa_maria,
+        img: fuente_las_piedras,
         link: "https://hotelfuentelaspiedras.com/",
         title: "Hotel Fuente Las Piedras",
         desc: "Hotel en el corazón de la Subbética. La auténtica felicidad, empieza aquí",

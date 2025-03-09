@@ -42,9 +42,9 @@ const AboutQuote = ({ styleNum }) => {
                                 <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Hemos sido Ted buscando señales y Marshall apostando por el amor, Ross discutiendo sobre dinosaurios y Monica organizando cada plan.</h5>
                                 <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Y ahora, después de casi 14 años de temporada tras temporada, llega el episodio que siempre quisimos grabar.</h5>
                                 <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Así que aquí está, el final de temporada (que no de serie) que esperábais. ¿Os lo vais a perder?</h5>
-                                <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Si nuestra historia fuera una serie, vosotros seríais los personajes recurrentes, los que han estado en cada escena importante, en cada giro de guion.</h5>
+                                <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Si nuestra historia fuera una serie, vosotros seríais los personajes recurrentes, los que han estado en cada escena importante, en cada giro de guión.</h5>
                                 <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Y ahora, queremos que estéis en este capítulo especial, no como espectadores, sino como parte de la trama.</h5>
-                                <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">Nos vemos en la boda!!.</h5>
+                                <h5 className="blog-inner-text custom-jakarta fw-bold mb-20">¡¡Nos vemos en la boda!!</h5>
                             </div>
                         </div>
                     </blockquote>
