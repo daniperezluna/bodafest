@@ -13,6 +13,21 @@ export const metadata = {
   icons: {
     icon: `${logo.src}`,
   },
+  openGraph: {
+    title: 'BodaFest - Eli y Dani',
+    description: 'Bienvenidos al bodafest de vuestras vidas',
+    url: "https://bodafest.vercel.app",
+    siteName: "BodaFest - Eli y Dani",
+    images: [
+      {
+        url: "https://bodafest.vercel.app/main-image-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Imagen de Open Graph",
+      },
+    ],
+    locale: "es_ES",
+  },
 }
 
 const open_sans = Open_Sans({
