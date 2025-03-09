@@ -5,6 +5,7 @@ import logo from "@/assets/images/main-logo-small.png"
 import LayoutChildren from '@/lib/layoutChildren'
 import NavbarTwo from '@/components/common/navbars/NavbarTwo'
 import FooterTwo from '@/components/common/footers/FooterTwo'
+import { Analytics } from "@vercel/analytics/react"
 import { Open_Sans, Poppins, Plus_Jakarta_Sans, Roboto } from "next/font/google"
 
 export const metadata = {
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${open_sans.variable} ${plus_jakarta_sans.variable} ${poppins.variable} ${roboto.variable} `}>
       <body suppressHydrationWarning={true}>
+        <Analytics />
         <LayoutChildren>
           <NavbarTwo />
             {children}
