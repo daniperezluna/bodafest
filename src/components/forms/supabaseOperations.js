@@ -29,7 +29,8 @@ export const saveToSupabase = async (formData) => {
           cancion: formData.mainAttendee.favoriteSong,
           asistencia: 'SI',
           es_menor: false,
-          asistente_principal: null
+          asistente_principal: null,
+          va_en_bus: formData.mainAttendee.vaEnBus || false,
         }])
         .select()
           
@@ -48,7 +49,8 @@ export const saveToSupabase = async (formData) => {
         cancion: formData.mainAttendee.favoriteSong,
         asistencia: 'SI',
         es_menor: false,
-        asistente_principal: null
+        asistente_principal: null,
+        va_en_bus: formData.mainAttendee.vaEnBus || false,
       }])
       .select()
     

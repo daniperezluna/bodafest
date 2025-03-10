@@ -101,12 +101,17 @@ export const createFormHandlers = ({
       email: e.target.email.value,
       allergies: e.target.allergies.value,
       favoriteSong: e.target.favoriteSong.value,
+      vaEnBus: e.target.vaEnBus.checked,
     }
     
     const newErrors = {}
     
     if (!data.name.trim()) newErrors.name = "Por favor ingresa tu nombre"
     
+    if (data.vaEnBus === undefined || data.vaEnBus === null) {
+      newErrors.vaEnBus = "Por favor indica si utilizarás el bus"
+    }
+
     if (!data.email && !validateEmailField(data.email)) {
       newErrors.email = "Por favor ingresa un email válido"
     }
@@ -174,6 +179,7 @@ export const createFormHandlers = ({
           email: e.target.email.value,
           allergies: e.target.allergies.value,
           favoriteSong: e.target.favoriteSong.value,
+          vaEnBus: e.target.vaEnBus.checked,
         }
       : {
           name: e.target.name.value,
@@ -187,6 +193,10 @@ export const createFormHandlers = ({
     
     if (!data.name.trim()) {
       newErrors.name = "Por favor ingresa el nombre"
+    }
+
+    if (currentAttendeeIndex === 0 && (data.vaEnBus === undefined || data.vaEnBus === null)) {
+      newErrors.vaEnBus = "Por favor indica si utilizarás el bus"
     }
     
     if (currentAttendeeIndex === 0 && !validateEmailField(data.email)) {

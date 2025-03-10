@@ -30,6 +30,7 @@ function FestivalForm() {
       email: "",
       allergies: "",
       favoriteSong: "",
+      vaEnBus: false,
     },
     additionalAttendees: [],
     notComing: {
@@ -306,6 +307,16 @@ function FestivalForm() {
               error={errors.email}
               defaultValue={formData.mainAttendee.email}
             />
+
+            <label className="checkbox-field">
+              <input 
+                type="checkbox" 
+                name="vaEnBus"
+                defaultChecked={formData.mainAttendee.vaEnBus || false}
+              />
+              <span>¿Vas a usar el bus?</span>
+            </label>
+            {errors.vaEnBus && <p className="error-message">{errors.vaEnBus}</p>}
             
             <FormField
               label="Alergias o restricciones alimentarias"
@@ -373,16 +384,29 @@ function FestivalForm() {
                 : (formData.additionalAttendees[currentAttendeeIndex - 1]?.name || '')}
               required
             />
+
             
             {currentAttendeeIndex === 0 ? (
-              <FormField
+              <>
+                <FormField
                 label="Email"
                 name="email"
                 type="email"
                 placeholder="mail@email.com"
                 error={errors.email}
                 defaultValue={formData.mainAttendee.email}
-              />
+                />
+
+                <label className="checkbox-field">
+                  <input 
+                    type="checkbox" 
+                    name="vaEnBus"
+                    defaultChecked={formData.mainAttendee.vaEnBus || false}
+                  />
+                  <span>¿Vas a usar el bus?</span>
+                </label>
+                {errors.vaEnBus && <p className="error-message">{errors.vaEnBus}</p>}
+              </>
             ) : (
               <label className="checkbox-field">
                 <input 
