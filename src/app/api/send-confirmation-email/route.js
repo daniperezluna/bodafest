@@ -12,7 +12,7 @@ export async function POST(request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'BodaFest <info@bodafesteliydani.es>',
+      from: 'BodaFest <info@resend.dev>',
       to: email,
       subject: '¡Gracias por confirmar tu asistencia a nuestro BodaFest!',
       html: `
@@ -32,7 +32,7 @@ export async function POST(request) {
           <p>
             <strong>Fecha:</strong> 3 de Mayo de 2025<br>
             <strong>Lugar Ceremonia:</strong> Iglesia San Juan Bautista del Cerro<br>
-            <strong>Hora:</strong> 12:30h
+            <strong>Hora:</strong> 12:30h</br>
             <strong>Lugar Banquete:</strong> Iglesia San Juan Bautista del Cerro<br>
             <strong>Hora:</strong> 14:00h
           </p>
