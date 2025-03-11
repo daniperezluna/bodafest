@@ -6,18 +6,21 @@ async function sendConfirmationEmail(userData) {
    return;
  }
 
- try {
-   const response = await fetch('/api/send-confirmation-email', {
-     method: 'POST',
-     headers: {
-       'Content-Type': 'application/json',
-     },
-     body: JSON.stringify({
-       name: userData.name,
-       email: userData.email,
-       vaEnBus: userData.vaEnBus || false,
-       isMainAttendee: true
-     }),
+  try {
+    const response = await fetch('/api/send-confirmation-email', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: userData.name,
+      email: userData.email,
+      vaEnBus: userData.vaEnBus || false,
+      isMainAttendee: true,
+      allergies: userData.allergies || 'No especificado',
+      favoriteSong: userData.favoriteSong || 'No especificado',
+      additionalAttendees: userData.additionalAttendees || [] // Pasar acompañantes si existen
+    }),
    });
 
    if (!response.ok) {
@@ -71,7 +74,9 @@ export const saveToSupabase = async (formData) => {
         await sendConfirmationEmail({
           name: formData.mainAttendee.name,
           email: formData.mainAttendee.email,
-          vaEnBus: formData.mainAttendee.vaEnBus
+          vaEnBus: formData.mainAttendee.vaEnBus,
+          allergies: formData.mainAttendee.allergies,
+          favoriteSong: formData.mainAttendee.favoriteSong
         });
       }
 
@@ -120,7 +125,9 @@ export const saveToSupabase = async (formData) => {
           name: formData.mainAttendee.name,
           email: formData.mainAttendee.email,
           vaEnBus: formData.mainAttendee.vaEnBus,
-          additionalAttendeesCount: formData.additionalAttendees?.length || 0
+          allergies: formData.mainAttendee.allergies,
+          favoriteSong: formData.mainAttendee.favoriteSong,
+          additionalAttendees: formData.additionalAttendees
         });
       }
       

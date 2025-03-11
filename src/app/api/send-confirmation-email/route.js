@@ -5,10 +5,50 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
-    const { name, email, vaEnBus, isMainAttendee } = await request.json();
+    const { 
+      name, 
+      email, 
+      vaEnBus, 
+      allergies,
+      favoriteSong,
+      additionalAttendees
+    } = await request.json();
     
     if (!name || !email) {
       return NextResponse.json({ error: 'Faltan datos necesarios' }, { status: 400 });
+    }
+
+    const mainAttendeeSummary = `
+      <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin: 20px 0;">
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li><strong>Nombre:</strong> ${name}</li>
+          <li><strong>Email:</strong> ${email}</li>
+          <li><strong>Servicio de bus:</strong> ${vaEnBus ? 'Sí' : 'No'}</li>
+          <li><strong>Alergias/Restricciones:</strong> ${allergies || 'No especificado'}</li>
+          <li><strong>Canción favorita:</strong> ${favoriteSong || 'No especificado'}</li>
+        </ul>
+      </div>
+    `;
+
+    // Generar sección de resumen para acompañantes si existen
+    let additionalAttendeesSummary = '';
+    if (additionalAttendees && additionalAttendees.length > 0) {
+      additionalAttendeesSummary = `
+        <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin: 20px 0;">
+          <h4 style="color: #FCA311; margin-top: 0;">Información de acompañantes</h4>
+          ${additionalAttendees.map((attendee, index) => `
+            <div style="margin-bottom: ${index < additionalAttendees.length - 1 ? '15px' : '0'}; padding-bottom: ${index < additionalAttendees.length - 1 ? '15px' : '0'}; ${index < additionalAttendees.length - 1 ? 'border-bottom: 1px solid #eee;' : ''}">
+              <p style="font-weight: bold; margin-bottom: 5px;">Acompañante ${index + 1}</p>
+              <ul style="list-style-type: none; padding-left: 0; margin-top: 5px;">
+                <li><strong>Nombre:</strong> ${attendee.name}</li>
+                <li><strong>Menor de 12 años:</strong> ${attendee.isUnder12 ? 'Sí' : 'No'}</li>
+                <li><strong>Alergias/Restricciones:</strong> ${attendee.allergies || 'No especificado'}</li>
+                <li><strong>Canción favorita:</strong> ${attendee.favoriteSong || 'No especificado'}</li>
+              </ul>
+            </div>
+          `).join('')}
+        </div>
+      `;
     }
 
     const { data, error } = await resend.emails.send({
@@ -31,18 +71,25 @@ export async function POST(request) {
           <h3 style="color: #FCA311; margin-top: 30px;">Detalles del evento</h3>
           <p>
             <strong>Fecha:</strong> 3 de Mayo de 2025<br>
-            <strong>Lugar Ceremonia:</strong> Iglesia San Juan Bautista del Cerro<br>
-            <strong>Hora:</strong> 12:30h</br>
-            <strong>Lugar Banquete:</strong> Iglesia San Juan Bautista del Cerro<br>
+            <strong>Lugar Ceremonia:</strong> Iglesia San Juan Bautista del Cerro - Cabra<br>
+            <strong>Hora:</strong> 12:30h<br>
+            <strong>Lugar Banquete:</strong> Bodegas Los Ángeles - Aguilar de la Frontera<br>
             <strong>Hora:</strong> 14:00h
           </p>
           
-          ${isMainAttendee ? `
-            <p>Has confirmado la asistencia como invitado principal ${vaEnBus ? 'con servicio de bus' : 'sin servicio de bus'}.</p>
-          ` : ''}
+          <h3 style="color: #FCA311; margin-top: 30px;">Resumen de tu registro</h3>
           
-          <p>Si tienes cualquier pregunta o necesitas hacer algún cambio en tu RSVP, no dudes en contactarnos.</p>
+          ${mainAttendeeSummary}
+          ${additionalAttendeesSummary}
           
+          <p style="background-color: #fffaf0; padding: 10px; border-left: 4px solid #ffc107; margin-top: 20px;">
+            Si necesitas corregir algún dato, por favor contáctanos lo antes posible en los siguientes teléfonos 692492741 (Eli) o 655098956 (Dani).
+            También por correo a
+            <a href="mailto:daniperezluna@gmail.com">daniperezluna@gmail.com</a>
+            o a
+            <a href="mailto:elisabethosunar@gmail.com">elisabethosunar@gmail.com</a>
+          </p>
+                    
           <p style="margin-top: 40px;">
             Con cariño,<br>
             <strong>Eli y Dani</strong>
