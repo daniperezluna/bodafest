@@ -1,18 +1,14 @@
-// pages/api/send-confirmation-email.js
 import { Resend } from 'resend';
+import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
-
+export async function POST(request) {
   try {
-    const { name, email, vaEnBus, isMainAttendee } = req.body;
+    const { name, email, vaEnBus, isMainAttendee } = await request.json();
     
     if (!name || !email) {
-      return res.status(400).json({ error: 'Faltan datos necesarios' });
+      return NextResponse.json({ error: 'Faltan datos necesarios' }, { status: 400 });
     }
 
     const { data, error } = await resend.emails.send({
@@ -21,12 +17,12 @@ export default async function handler(req, res) {
       subject: '¡Gracias por confirmar tu asistencia a nuestro BodaFest!',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
-          <h2 style="color: #FCA311;;">¡Hola ${name}!</h2>
+          <h2 style="color: #FCA311;">¡Hola ${name}!</h2>
           
           <p>¡Estamos muy emocionados de que te unas a nuestra celebración! Tu asistencia ha sido confirmada correctamente.</p>
           
           ${vaEnBus ? `
-            <div style="background-color: #f8f4ff; border-left: 4px solid #FCA311;; padding: 15px; margin: 20px 0;">
+            <div style="background-color: #f8f4ff; border-left: 4px solid #FCA311; padding: 15px; margin: 20px 0;">
               <strong>Has confirmado que utilizarás el servicio de bus.</strong><br>
               Te enviaremos los horarios y puntos de recogida por correo electrónico unos días antes del evento.
             </div>
@@ -61,12 +57,12 @@ export default async function handler(req, res) {
 
     if (error) {
       console.error('Error sending email:', error);
-      return res.status(500).json({ error: 'Error sending email' });
+      return NextResponse.json({ error: 'Error sending email' }, { status: 500 });
     }
 
-    return res.status(200).json({ success: true, data });
+    return NextResponse.json({ success: true, data });
   } catch (error) {
     console.error('Error in send-confirmation-email:', error);
-    return res.status(500).json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
