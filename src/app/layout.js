@@ -17,11 +17,11 @@ export const metadata = {
   openGraph: {
     title: 'BodaFest - Eli y Dani',
     description: 'Bienvenidos al bodafest de vuestras vidas',
-    url: "https://bodafest.vercel.app",
+    url: "https://bodafesteliydani.es",
     siteName: "BodaFest - Eli y Dani",
     images: [
       {
-        url: "https://bodafest.vercel.app/main-image-og.png",
+        url: "https://bodafesteliydani.es/main-image-og.png",
         width: 1200,
         height: 630,
         alt: "Imagen de Open Graph",
