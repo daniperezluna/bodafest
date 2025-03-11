@@ -482,7 +482,7 @@
     }
     &:hover {
         background-color: transparent;
-        color: green;
+        color: green !important;
         border: 2px solid green;
     }
 }

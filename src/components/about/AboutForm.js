@@ -54,12 +54,12 @@ const AboutForm = ({ styleNum }) => {
                             <div className="blog-left-content">
                                 <h2 className="blog-link fs-4 fw-bold">Si no te llevas bien con el formulario, contacta con nosotros por whatsapp pulsando uno de los siguientes iconos</h2>
                                 <div className="d-flex align-items-center gap-10 mb-20">
-                                <button className="btn-whatsapp" href="https://wa.me/34655098956?text=Hola!%20Te%20confirmo%20la%20asistencia%20a%20la%20boda!%20Soy:">
-                                    <p className="fw-semibold mb-0"> <FaWhatsapp /> Dani </p>
-                                </button>
-                                <button className="btn-whatsapp" href="https://wa.me/34692492741?text=Hola!%20Te%20confirmo%20la%20asistencia%20a%20la%20boda!%20Soy:">
+                                <a className="btn-whatsapp" href="https://wa.me/34692492741?text=Hola!%20Te%20confirmo%20la%20asistencia%20a%20la%20boda!%20Soy:">
                                     <p className="fw-semibold mb-0"> <FaWhatsapp /> Eli </p>
-                                </button>
+                                </a>
+                                <a className="btn-whatsapp" href="https://wa.me/34655098956?text=Hola!%20Te%20confirmo%20la%20asistencia%20a%20la%20boda!%20Soy:">
+                                    <p className="fw-semibold mb-0"> <FaWhatsapp /> Dani </p>
+                                </a>
                                 </div>
                             </div>
                             {/* -- left-content -- */}

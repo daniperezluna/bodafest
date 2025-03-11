@@ -1,5 +1,36 @@
 import { supabase } from '@/lib/supabaseClient';
 
+async function sendConfirmationEmail(userData) {
+ if (!userData.email) {
+   console.log('No email provided for', userData.name);
+   return;
+ }
+
+ try {
+   const response = await fetch('/api/send-confirmation-email', {
+     method: 'POST',
+     headers: {
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify({
+       name: userData.name,
+       email: userData.email,
+       vaEnBus: userData.vaEnBus || false,
+       isMainAttendee: true
+     }),
+   });
+
+   if (!response.ok) {
+     const error = await response.json();
+     throw new Error(error.message || 'Error sending confirmation email');
+   }
+
+   console.log('Confirmation email sent to', userData.email);
+ } catch (error) {
+   console.error('Failed to send confirmation email:', error);
+ }
+}
+
 export const saveToSupabase = async (formData) => {
   try {
     if (formData.isAttending === "no") {
@@ -35,6 +66,15 @@ export const saveToSupabase = async (formData) => {
         .select()
           
       if (error) throw error
+
+      if (formData.mainAttendee.email) {
+        await sendConfirmationEmail({
+          name: formData.mainAttendee.name,
+          email: formData.mainAttendee.email,
+          vaEnBus: formData.mainAttendee.vaEnBus
+        });
+      }
+
       return { success: true, data }
     }
     
@@ -55,7 +95,7 @@ export const saveToSupabase = async (formData) => {
       .select()
     
     if (principalError) throw principalError
-    
+
     // Si hay acompañantes, los insertamos referenciando al principal
     if (formData.additionalAttendees && formData.additionalAttendees.length > 0) {
       const acompanantes = formData.additionalAttendees.map(att => ({
@@ -74,6 +114,15 @@ export const saveToSupabase = async (formData) => {
         .select()
       
       if (acompanantesError) throw acompanantesError
+      
+      if (formData.mainAttendee.email) {
+        await sendConfirmationEmail({
+          name: formData.mainAttendee.name,
+          email: formData.mainAttendee.email,
+          vaEnBus: formData.mainAttendee.vaEnBus,
+          additionalAttendeesCount: formData.additionalAttendees?.length || 0
+        });
+      }
       
       // Combinar datos solo si ambos son arrays
       return { 
