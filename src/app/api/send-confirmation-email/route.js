@@ -52,7 +52,7 @@ export async function POST(request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'BodaFest <info@resend.dev>',
+      from: 'BodaFest <info@bodafesteliydani.es>',
       to: email,
       subject: '¡Gracias por confirmar tu asistencia a nuestro BodaFest!',
       html: `
