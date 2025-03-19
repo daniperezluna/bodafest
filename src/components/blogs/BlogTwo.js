@@ -8,9 +8,9 @@ const BlogTwo = ({data}) => {
                 <div className="blog-wrapper">
                     <div className="row g-4">
                         {
-                            data.map(({ id, date, desc, img, link, title, tel, author_img }) =>
+                            data.map(({ id, date, desc, img, link, title, tel, author_img, address }) =>
                                 <div key={id} className="col-md-6 col-xl-4">
-                                    <BlogCard date={date} desc={desc} img={img} link={link} title={title} blogPage={true} author_img={author_img} tel={tel} parentClass={'blog-content-2 custom-inner-bg'} />
+                                    <BlogCard date={date} desc={desc} img={img} link={link} title={title} blogPage={true} author_img={author_img} tel={tel} address={address} parentClass={'blog-content-2 custom-inner-bg'} />
                                 </div>
                             )
                         }

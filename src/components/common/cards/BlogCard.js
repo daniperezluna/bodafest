@@ -4,7 +4,7 @@ import React from 'react'
 import TopUpArrow from '../icons/TopUpArrow'
 import { GrMapLocation } from "react-icons/gr";
 
-const BlogCard = ({ img, title, desc, link, tel, parentClass }) => {
+const BlogCard = ({ img, title, desc, link, tel, address, parentClass }) => {
     return (
         <div className="blog-content">
             <div className={parentClass}>
@@ -19,12 +19,14 @@ const BlogCard = ({ img, title, desc, link, tel, parentClass }) => {
 
                             <h2 className="blog-link fs-4 fw-bold"><Link className="text-decoration-none" href={`/${link}`}>{title}</Link></h2>
                             <p className="py-20">{desc}</p>
+                            { address &&
                             <div className="d-flex align-items-center gap-10 mb-20">
                             <GrMapLocation />
-                            <a href="https://maps.app.goo.gl/CgPYETvbSr7uUv658">
+                            <a href={address}>
                                 <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0"> Abrir en Goole Maps</p>
                             </a>
                             </div>
+                            }   
                             { tel && 
                                 <div className="d-flex align-items-center gap-10 mb-20">
                                     <a href={`tel:${tel}`} className="py-20" aria-label="buttons">
