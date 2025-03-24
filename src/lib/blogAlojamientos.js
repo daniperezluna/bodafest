@@ -11,7 +11,7 @@ export const blogAlojamientos = [
         link: "https://villamariacabra.top/",
         title: "Hotel Villa María",
         desc: "Hotel en el centro del pueblo junto al histórico Parque Alcántara Romero",
-        tel: "957 52 97 40",
+        tel: "857 89 40 40",
         address: "https://maps.app.goo.gl/cDFjeW7cfxibiNj18",
     },
     {
@@ -20,7 +20,7 @@ export const blogAlojamientos = [
         link: "https://hotelfuentelaspiedras.com/",
         title: "Hotel Fuente Las Piedras",
         desc: "Hotel en el corazón de la Subbética. La auténtica felicidad, empieza aquí",
-        tel: "857 89 40 40",
+        tel: "957 52 97 40",
         address: "https://maps.app.goo.gl/hj1w53iCovZ81it58",
     },
     {
