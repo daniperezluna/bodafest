@@ -4,6 +4,7 @@ import guillermo from "@/assets/images/guillermo.jpg";
 import hanami from "@/assets/images/hanami.png";
 import paco_anguita from "@/assets/images/paco_anguita.jpeg";
 import aurelia from "@/assets/images/aurelia.jpg";
+import almudena from "@/assets/images/almudena.png";
 
 export const blogMaquillaje = [
     {
@@ -16,6 +17,14 @@ export const blogMaquillaje = [
     },
     {
         id: 2,
+        img: almudena,
+        link: "https://www.facebook.com/peluqueriaalmudenatrujillo",
+        title: "Salón de Belleza Mavic",
+        tel: "644 75 64 72",
+        address: "https://maps.app.goo.gl/PEjXVwfNFvMh7Yzu7",
+    },
+    {
+        id: 3,
         img: mavic,
         link: "https://www.instagram.com/mavicbelleza/",
         title: "Salón de Belleza Mavic",
@@ -23,7 +32,7 @@ export const blogMaquillaje = [
         address: "https://maps.app.goo.gl/DLMPjNZiExuzrHqd8",
     },
     {
-        id: 3,
+        id: 4,
         img: guillermo,
         link: "https://www.instagram.com/guillermosabariego/",
         title: "Guillermo Sabariego",
@@ -31,7 +40,7 @@ export const blogMaquillaje = [
         address: "https://maps.app.goo.gl/Uj7viu4vaiJ5J4pt8",
     },
     {
-        id: 4,
+        id: 5,
         img: hanami,
         link: "https://www.hanamiarmonia.es/",
         title: "Hanami Armonía",
@@ -39,7 +48,7 @@ export const blogMaquillaje = [
         address: "https://maps.app.goo.gl/VuTRkySoWyCwDEmt8",
     },
     {
-        id: 5,
+        id: 6,
         img: paco_anguita,
         link: "https://www.instagram.com/fran41cabra/",
         title: "Paco Anguita Peluqueros",
@@ -47,7 +56,7 @@ export const blogMaquillaje = [
         address: "https://maps.app.goo.gl/gF1kvn5e4C6PdYKZA",
     },
     {
-        id: 6,
+        id: 7,
         img: aurelia,
         link: "#",
         title: "Aurelia Herrero Peluquería",
