@@ -19,7 +19,7 @@ export const blogMaquillaje = [
         id: 2,
         img: almudena,
         link: "https://www.facebook.com/peluqueriaalmudenatrujillo",
-        title: "Salón de Belleza Mavic",
+        title: "Peluqueria Unisex Almudena Trujillo",
         tel: "644 75 64 72",
         address: "https://maps.app.goo.gl/PEjXVwfNFvMh7Yzu7",
     },
