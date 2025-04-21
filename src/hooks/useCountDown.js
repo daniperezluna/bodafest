@@ -59,7 +59,7 @@ const useCountDown = () => {
   });
 
   function getTargetDate() {
-    return new Date(2025, 4, 3, 12, 0, 0, 0).getTime(); // 3 de mayo de 2025 a las 12:30 PM
+    return new Date(2025, 4, 3, 12, 30, 0, 0).getTime(); // 3 de mayo de 2025 a las 12:30 PM
   }
 
   function updateCountdown() {
