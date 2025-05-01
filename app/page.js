@@ -36,7 +36,7 @@ const Home = async () => {
       <AboutBus styleNum={0} />
       <AboutEvent styleNum={0} />
       <HighlightThree styleNum={0} prantClass={"py-50"} />
-      <AboutForm styleNum={0}/>
+      {/* <AboutForm styleNum={0}/> */}
       <ScrollSection prentClass={"py-30 py-lg-50"} />
       <Separator className={"mt-0 mt-lg-0 mt-xxl-0"} />
       <Gallery styleNum={2} />

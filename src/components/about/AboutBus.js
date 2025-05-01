@@ -56,8 +56,9 @@ const AboutBus = ({ styleNum }) => {
                         <div className="about-3-text d-flex flex-column flex-lg-row gap-4 justify-content-between align-items-lg-center mb-40 mb-xl-80 mb-xxl-100">
                             <div>
                                 <h4 className={`fw-extra-bold ${dateClass}`}>3 de Mayo de 2025</h4>
-                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0">13:45 pm (Pendiente de confirmar)</p>
-                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0"> ℹ️ Los horarios de vuelta los anunciaremos más adelante</p>
+                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0">ℹ️ 13:45 pm</p>
+                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0"> ℹ️ Horarios de vuelta: 22:00, 00:00 y 01:00</p>
+                                <p className="custom-jakarta custom-font-style-2 fw-semibold mb-0"> El bus de vuelta saldrá de la puerta principal de las Bodegas</p>
                             </div>
                             <div>
                                 <h4 className="text-uppercase fw-extra-bold custom-jakarta">Dirección</h4>
